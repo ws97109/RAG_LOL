@@ -26,7 +26,7 @@ class CustomE5Embedding(HuggingFaceEmbeddings):
 embedding_model = CustomE5Embedding(model_name="intfloat/multilingual-e5-small")
 db = FAISS.load_local("faiss_db", embedding_model, allow_dangerous_deserialization=True)
 retriever = db.as_retriever()
-api_key = userdata.get('Groq')
+api_key = userdata.get('Groq') # api_key = your Groq api key
 os.environ["OPENAI_API_KEY"] = api_key
 model = "llama3-70b-8192"
 base_url="https://api.groq.com/openai/v1"
